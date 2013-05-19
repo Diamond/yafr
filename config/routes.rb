@@ -1,6 +1,7 @@
 Yafr::Application.routes.draw do
   get "home/index"
 
+  resources :users, only: [:new, :create, :destroy, :edit, :index, :update]
   resources :sessions, only: [:create, :destroy]
 
   # The priority is based upon order of creation:

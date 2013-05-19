@@ -7,10 +7,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
 
   def self.authenticate(email, password)
-    begin
-      User.where(email: email).first.authenticate(password)
-    rescue RecordNotFoundException
-      return false
-    end
+    user = User.where(email: email).first
+    return false if user.nil?
+    user.authenticate(password)
   end
 end

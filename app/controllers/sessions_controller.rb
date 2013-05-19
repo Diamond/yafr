@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to :root, notice: "Login successful!"
     else
-      redirect_to :root, "Email/password combination invalid!"
+      redirect_to :root, alert: "Email/password combination invalid!"
     end
   end
 
