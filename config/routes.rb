@@ -1,7 +1,11 @@
 Yafr::Application.routes.draw do
+  get "articles/index"
+
   resources :sessions, only: [:create, :destroy]
   resources :users
-  resources :feeds
+  resources :feeds do
+    resources :articles, only: :index
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

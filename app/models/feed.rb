@@ -19,8 +19,10 @@ class Feed < ActiveRecord::Base
     new_feed = ff.fetch
     self.title = new_feed.title
 
-    new_feed.sanitize_entries!
+    last_pub = self.articles.maximum(:published)
+
     new_feed.entries.each do |entry|
+      next if last_pub && entry.published < last_pub
       self.articles << Article.new(author: entry.author, body: entry.content, published: entry.published, read: false, title: entry.title) 
     end
   end

@@ -6,8 +6,8 @@
       = link_to "Sign up now!", new_user_path, class: "btn btn-primary btn-large"
 - else
   div.span3
-    ul
+    ul#feed_list
       = render @feeds
       li
         a href="#{new_feed_path}" Add Feed
-
+  div.span9.well#feed_display

@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to edit_user_path(user), notice: "New user account created successfully!"
     else
-      redirect_to :back, alert: "User creation failed: #{user.errors.join(', ')}"
+      redirect_to :back, alert: "User creation failed: #{user.errors.full_messages}"
     end
   end
 
