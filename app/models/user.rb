@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :feeds
 
   validates :email, presence: true, uniqueness: true
+  validates_presence_of :password, :password_confirmation
 
   def self.authenticate(email, password)
     user = User.where(email: email).first

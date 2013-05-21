@@ -1,5 +1,13 @@
-div class="hero-unit"
-  h1 Welcome to YAFR
-  p YAFR is a lightweight feed reader!
-  p
-    = link_to "Sign up now!", new_user_path, class: "btn btn-primary btn-large"
+- unless current_user
+  div class="hero-unit"
+    h1 Welcome to YAFR
+    p YAFR is a lightweight feed reader!
+    p
+      = link_to "Sign up now!", new_user_path, class: "btn btn-primary btn-large"
+- else
+  div.span3
+    ul
+      = render @feeds
+      li
+        a href="#{new_feed_path}" Add Feed
+

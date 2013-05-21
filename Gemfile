@@ -25,6 +25,7 @@ gem 'jquery-rails'
 
 group :development do
   #gem 'rack-mini-profiler'
+  gem 'thin'
 end
 
 group :development, :test do
