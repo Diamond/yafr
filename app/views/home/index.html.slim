@@ -10,4 +10,8 @@
       = render @feeds
       li
         a href="#{new_feed_path}" Add Feed
-  div.span9.well#feed_display
+  div#feed_display class="span8 well"
+    - if @feeds.size > 0
+      = render @feeds.first.articles
+    - else
+      | No feeds added!

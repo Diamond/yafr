@@ -22,9 +22,10 @@ html
               = password_field_tag :password, "", style: "margin-right: 10px; width: 150px;"
               = submit_tag "Login", class: "btn btn-primary"
 
-    div class="container" style="padding-top: 80px;"
+    div.container style="padding-top: 80px;"
       - flash.each do |name, msg|
         - class_nm = name == :notice ? "success" : "error"
         div class="alert alert-#{class_nm}"
           = msg
-      = yield
+      div.row
+        = yield

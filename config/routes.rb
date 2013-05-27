@@ -1,6 +1,4 @@
 Yafr::Application.routes.draw do
-  get "articles/index"
-
   resources :sessions, only: [:create, :destroy]
   resources :users
   resources :feeds do
